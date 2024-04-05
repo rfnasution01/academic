@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,900;1,6..12,600;1,6..12,1000&family=Roboto+Slab:wght@600;700&display=swap');
+@import url('https://v1.fontapi.ir/css/SFProDisplay:600');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 box-border p-0;
+  }
+
+  html {
+    /* ! 10px / 16px = 62.5 */
+    @apply text-[62.5%] bigger-desktops:text-[50%] smaller-desktops:text-[37.5%];
+  }
+
+  body {
+    @apply bg-background font-sf-pro text-16 font-normal leading text-black antialiased;
+  }
+
+  body:has(#User__Admisi) {
+    @apply bg-white;
+  }
+
+  body > main {
+    @apply p-32;
+  }
+}
+
+@layer components {
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 6px;
+  }
+
+  .heading__primary {
+    @apply font-nunito text-[5.1rem] font-extrabold tracking-6;
+  }
+}
+
+#RootLayout > section:not(#RootLayout) {
+  @apply py-32;
+}
+
+#RootLayout section:not(#RootLayout) > section {
+  @apply flex -translate-y-2 flex-col gap-48 rounded-2xl border-[1.5px] border-border border-t-transparent bg-white p-32;
+}
