@@ -1,31 +1,73 @@
+import { Outlet } from 'react-router-dom'
+import {
+  ButtonGroup,
+  ButtonGroupMobile,
+  HeaderNavigation,
+} from './features/layout'
+import { Input } from './components/ui/input'
+import { List, Search } from 'lucide-react'
 import { useState } from 'react'
-import viteLogo from '/vite.svg'
+import { debounce } from 'lodash'
+import { DialogHelpers } from './components/ui/dialog'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function RootLayout() {
+  const [search, setSearch] = useState<string>('')
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const handleSearch = debounce((searchValue: string) => {
+    setSearch(searchValue)
+  }, 300)
+
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    handleSearch(value)
+  }
+
+  console.log(search)
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        
+    <div className="flex min-h-screen flex-col bg-background">
+      {/* ----- Header ----- */}
+      <div className="flex h-[7.6rem] flex-row items-center gap-x-96 bg-primary-shade-500 px-32 text-white phones:justify-between">
+        <h3 className="text-[3.2rem] text-secondary">
+          Aca<span className="text-primary-shade-200">Demy</span>
+        </h3>
+        <div className="block flex-1 phones:hidden">
+          <div className="flex flex-row items-center gap-x-96 ">
+            <HeaderNavigation />
+            <Input
+              className="text-secondary-shade-100 flex-1"
+              placeholder="Search"
+              prefix={<Search size={18} />}
+              onChange={onSearch}
+            />
+            <ButtonGroup />
+          </div>
+        </div>
+        <div className="hidden phones:block" onClick={() => setIsOpen(true)}>
+          <List size={24} color="#fff" />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      {/* ----- Content ----- */}
+      <div className="scrollbar h-[calc(100vh_-_7.6rem)] overflow-y-auto">
+        <Outlet />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <DialogHelpers
+        title={
+          <h3 className="flex h-[7.6rem] items-center bg-primary-shade-500 px-24 text-[3.2rem] text-white">
+            Aca<span className="text-primary-shade-200">Demy</span>
+          </h3>
+        }
+        open={isOpen}
+        setOpen={setIsOpen}
+        noPadding
+        customComponent={
+          <div className="flex flex-col items-center gap-y-32">
+            <HeaderNavigation close={() => setIsOpen(false)} />
+            <ButtonGroupMobile />
+          </div>
+        }
+      />
+    </div>
   )
 }
-
-export default App

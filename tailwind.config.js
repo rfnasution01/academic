@@ -81,9 +81,13 @@ export default {
       colors: {
         background: '#f0f4f7',
         primary: {
-          DEFAULT: '#1094DD',
-          shade: { 1: '#6D94BC', 2: '#3B4856' },
+          DEFAULT: '#6200EE',
+          shade: { 200: '#BB86FC', 500: '#6200EE', 700: '#3700B3' },
           tint: { 1: '#F2F8FF', 2: '#F3FAFF', 3: '#E6F4F1' },
+        },
+        secondary: {
+          DEFAULT: '#03DAC5',
+          shade: { 100: '#6b7280' },
         },
         black: '#202223',
         general: {

@@ -3,21 +3,24 @@ import { cva } from 'class-variance-authority'
 const variants = {
   solid: [
     'text-white',
-    'bg-primary',
-    'border',
-    'border-primary',
-    'hover:bg-primary-shade-1',
-    'hover:border-primary-shade-1',
-    'active:bg-primary-shade-1',
-    'active:border-primary-shade-1',
+    'hover:bg-primary-shade-700',
+    'active:bg-primary-shade-500',
+    'active:border-primary-shade-500',
+    'rounded-full',
   ],
   outlined: [
     'text-black',
     'bg-white',
-    'border',
-    'border-black',
-    'hover:bg-neutral-100',
-    'active:bg-neutral-100',
+    'hover:bg-slate-300',
+    'active:bg-slate-300',
+    'rounded-full',
+  ],
+  'outlined-primary': [
+    'text-white',
+    'bg-primary',
+    'hover:bg-primary-shade-700',
+    'active:bg-primary-shade-500',
+    'rounded-full',
   ],
   'solid-general': [
     'text-white',
@@ -44,7 +47,7 @@ const variants = {
 export type ButtonVariants = keyof typeof variants
 
 export const buttonVariants = cva(
-  'flex items-center justify-center gap-8 p-16 leading-medium rounded-lg transition-all ease-in disabled:cursor-not-allowed disabled:bg-dark-background  disabled:text-typography-disabled disabled:border-zinc-700 disabled:shadow-disabled',
+  'flex items-center justify-center gap-8 p-16 leading-medium transition-all ease-in disabled:cursor-not-allowed disabled:bg-dark-background  disabled:text-typography-disabled disabled:border-zinc-700 disabled:shadow-disabled',
   {
     variants: {
       variant: variants,
