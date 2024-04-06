@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import {
   ButtonGroup,
   ButtonGroupMobile,
@@ -29,14 +29,14 @@ export default function RootLayout() {
     <div className="flex min-h-screen flex-col bg-background">
       {/* ----- Header ----- */}
       <div className="flex h-[7.6rem] flex-row items-center gap-x-96 bg-primary-shade-500 px-32 text-white phones:justify-between">
-        <h3 className="text-[3.2rem] text-secondary">
+        <Link to="/" className="text-[3.2rem] text-secondary">
           Aca<span className="text-primary-shade-200">Demy</span>
-        </h3>
+        </Link>
         <div className="block flex-1 phones:hidden">
           <div className="flex flex-row items-center gap-x-96 ">
             <HeaderNavigation />
             <Input
-              className="text-secondary-shade-100 flex-1"
+              className="flex-1 text-secondary-shade-100"
               placeholder="Search"
               prefix={<Search size={18} />}
               onChange={onSearch}
