@@ -1,3 +1,11 @@
-export default function Homepage(){
-    return <div className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates delectus alias quod esse aliquam deserunt earum quibusdam nemo possimus consequuntur eveniet laboriosam, suscipit dolore eum tempore nostrum numquam explicabo autem.</div>
+export default function Homepage() {
+  return (
+    <div className="flex flex-col bg-red-300">
+      <img
+        src="/img/akademi-konoha.webp"
+        alt="akademi konoha"
+        className="h-[calc(100vh_-_7.6rem)] w-full"
+      />
+    </div>
+  )
 }
