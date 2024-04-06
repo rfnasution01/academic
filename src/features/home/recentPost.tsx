@@ -1,15 +1,24 @@
 import { Badge } from '@/components/Badge'
 import { CardTitle } from '@/components/CardTitle'
+import { Pagination } from '@/components/Pagination'
 import { DataRecentPost } from '@/libs/consts/dummy/dataRecentPost'
+import { useSearch } from '@/libs/hooks/useSearch'
 
 export function RecentPost() {
+  const { currentPage } = useSearch()
+  const dataPerPage = 6
+  const totalPage = Math.ceil(DataRecentPost.length / dataPerPage)
+
   return (
     <div className="rounded-2xl bg-white">
-      <CardTitle width="w-4/12" />
+      <CardTitle classes="w-4/12 phones:w-6/12" />
       <div className="grid grid-cols-12 gap-32 p-32">
-        {DataRecentPost.map((item, idx) => (
+        {DataRecentPost.slice(
+          currentPage * dataPerPage - dataPerPage,
+          currentPage * dataPerPage,
+        ).map((item, idx) => (
           <div
-            className="col-span-4 transform shadow-md transition-transform duration-300 hover:scale-105 hover:cursor-pointer"
+            className="col-span-4 transform shadow-md transition-transform duration-300 hover:scale-105 hover:cursor-pointer phones:col-span-6"
             key={idx}
           >
             <img
@@ -29,6 +38,10 @@ export function RecentPost() {
           </div>
         ))}
       </div>
+      <Pagination
+        totalPage={totalPage}
+        classes="flex justify-end px-32 pb-32"
+      />
     </div>
   )
 }

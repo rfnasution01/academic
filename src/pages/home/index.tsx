@@ -9,10 +9,10 @@ export default function Homepage() {
         className="h-[calc(100vh_-_7.6rem)] w-full"
       />
       <div className="grid grid-cols-12 gap-32 px-32 py-32">
-        <div className="col-span-9">
+        <div className="col-span-9 phones:col-span-12">
           <RecentPost />
         </div>
-        <div className="col-span-3 bg-red-300">Test</div>
+        <div className="col-span-3 phones:col-span-12">Test</div>
       </div>
     </div>
   )
