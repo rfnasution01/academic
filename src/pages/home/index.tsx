@@ -1,4 +1,4 @@
-import { PopularPost, RecentPost } from '@/features/home'
+import { PopularPost, RecentPost, Services } from '@/features/home'
 
 export default function Homepage() {
   return (
@@ -16,6 +16,7 @@ export default function Homepage() {
           <PopularPost />
         </div>
       </div>
+      <Services />
     </div>
   )
 }
