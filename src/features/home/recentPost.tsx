@@ -10,8 +10,8 @@ export function RecentPost() {
   const totalPage = Math.ceil(DataRecentPost.length / dataPerPage)
 
   return (
-    <div className="rounded-2xl bg-white">
-      <CardTitle classes="w-4/12 phones:w-6/12" />
+    <div className="h-full rounded-2xl bg-white">
+      <CardTitle title="RECENT POST" classes="w-4/12 phones:w-6/12" />
       <div className="grid grid-cols-12 gap-32 p-32">
         {DataRecentPost.slice(
           currentPage * dataPerPage - dataPerPage,

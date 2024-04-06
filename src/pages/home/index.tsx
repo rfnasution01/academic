@@ -1,4 +1,4 @@
-import { RecentPost } from '@/features/home'
+import { PopularPost, RecentPost } from '@/features/home'
 
 export default function Homepage() {
   return (
@@ -12,7 +12,9 @@ export default function Homepage() {
         <div className="col-span-9 phones:col-span-12">
           <RecentPost />
         </div>
-        <div className="col-span-3 phones:col-span-12">Test</div>
+        <div className="col-span-3 phones:col-span-12">
+          <PopularPost />
+        </div>
       </div>
     </div>
   )
