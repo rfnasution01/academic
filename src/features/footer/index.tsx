@@ -6,7 +6,11 @@ export function Footer() {
     <footer className="flex flex-col items-center justify-center gap-y-32 bg-primary-shade-500 p-64 text-white">
       <div className="flex items-center gap-x-32">
         {DataSocialMedia.map((item, idx) => (
-          <Link to={item?.url} key={idx}>
+          <Link
+            to={item?.url}
+            key={idx}
+            className="p-4 hover:rounded-md hover:bg-white hover:text-primary-shade-500"
+          >
             {item?.icon}
           </Link>
         ))}
