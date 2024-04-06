@@ -54,3 +54,10 @@
 #RootLayout section:not(#RootLayout) > section {
   @apply flex -translate-y-2 flex-col gap-48 rounded-2xl border-[1.5px] border-border border-t-transparent bg-white p-32;
 }
+
+.triangle-bottomleft {
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid #6200ee;
+  border-right: 8px solid transparent;
+}
