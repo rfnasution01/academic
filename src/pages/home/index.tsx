@@ -1,3 +1,4 @@
+import { Footer } from '@/features/footer'
 import { PopularPost, RecentPost, Services } from '@/features/home'
 
 export default function Homepage() {
@@ -17,6 +18,7 @@ export default function Homepage() {
         </div>
       </div>
       <Services />
+      <Footer />
     </div>
   )
 }
