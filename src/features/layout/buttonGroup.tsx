@@ -5,17 +5,28 @@ import { FormLogin } from './formLogin'
 
 export function ButtonGroup() {
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isLogin, setIsLogin] = useState<boolean>(false)
 
   return (
     <div className="flex items-center gap-x-32">
       <Button
         variant="outlined-primary"
         classes="text-[1.8rem] min-w-[11rem]"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsLogin(true)
+          setIsOpen(true)
+        }}
       >
         Login
       </Button>
-      <Button variant="solid-primary" classes="text-[1.8rem] min-w-[11rem]">
+      <Button
+        variant="solid-primary"
+        classes="text-[1.8rem] min-w-[11rem]"
+        onClick={() => {
+          setIsLogin(false)
+          setIsOpen(true)
+        }}
+      >
         Signup
       </Button>
       <DialogHelpers
@@ -27,10 +38,14 @@ export function ButtonGroup() {
         open={isOpen}
         setOpen={setIsOpen}
         noPadding
-        size="medium"
+        size="small"
         customComponent={
           <div className="flex flex-col items-center gap-y-32">
-            <FormLogin setIsOpen={setIsOpen} />
+            <FormLogin
+              setIsOpen={setIsOpen}
+              isLogin={isLogin}
+              setIsLogin={setIsLogin}
+            />
           </div>
         }
       />

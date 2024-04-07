@@ -27,7 +27,7 @@ export function DialogHelpers({
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="text-dark flex flex-col bg-background text-white"
+        className="text-dark scrollbar flex flex-col overflow-y-auto bg-background text-white"
         style={{
           width: size?.includes('full')
             ? '100%'

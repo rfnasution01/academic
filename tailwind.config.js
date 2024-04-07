@@ -89,6 +89,10 @@ export default {
           DEFAULT: '#03DAC5',
           shade: { 100: '#6b7280' },
         },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
         black: '#202223',
         general: {
           DEFAULT: '#1349A0',
