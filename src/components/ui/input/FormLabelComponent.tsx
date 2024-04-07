@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { UseFormReturn } from 'react-hook-form'
 import { FormField, FormItem, FormLabel, FormMessage } from '@/components/Form'
 import { Input } from '.'
-import { useSelector } from 'react-redux'
-import { getModeSlice } from '@/store/reducer/stateMode'
-import clsx from 'clsx'
 
 export function FormLabelComponent({
   form,
@@ -13,35 +11,33 @@ export function FormLabelComponent({
   prefix,
   suffix,
   type,
+  handlerClick,
 }: {
-  form: UseFormReturn
+  form: UseFormReturn | undefined | any
   label?: string
   placeholder?: string
   name: string
   prefix?: JSX.Element
   suffix?: JSX.Element
-  type?: 'text' | 'number'
+  type?: 'text' | 'number' | 'password'
+  handlerClick?: () => void
 }) {
-  const mode = useSelector(getModeSlice)
-
   return (
     <FormField
-      control={form.control}
+      control={form?.control}
       name={name}
       render={({ field }) => (
-        <FormItem className="flex flex-col gap-y-8">
+        <FormItem className="flex flex-col gap-y-8 text-[2rem] text-black">
           <FormLabel>{label}</FormLabel>
           <Input
             {...field}
-            className={clsx('', {
-              'border-slate-300 bg-white': mode.isLight,
-              'border-zinc-700 bg-dark-tint-1': !mode.isLight,
-            })}
+            className="bg-white"
             type={type}
             placeholder={placeholder}
             value={field.value}
             prefix={prefix}
             suffix={suffix}
+            handlerClick={handlerClick}
           />
           <FormMessage />
         </FormItem>

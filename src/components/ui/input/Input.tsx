@@ -11,12 +11,22 @@ export interface InputProps
   suffix?: React.ReactElement
   prefix?: React.ReactElement
   error?: FieldError | undefined
+  handlerClick?: () => void
   onValueChange?: () => void
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, type, error, suffix, prefix, onValueChange, ...props },
+    {
+      className,
+      type,
+      error,
+      suffix,
+      prefix,
+      handlerClick,
+      onValueChange,
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -36,7 +46,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             focus:shadow-primary-shade-1
             h-48
             flex-grow
-            rounded-full
+            rounded-lg
             border-2
             px-12
             py-8
@@ -58,7 +68,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {suffix && (
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-16">
+          <div
+            className="absolute inset-y-0 right-0 flex items-center pr-16 hover:cursor-pointer"
+            onClick={handlerClick}
+          >
             {suffix}
           </div>
         )}

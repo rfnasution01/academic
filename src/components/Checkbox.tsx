@@ -21,7 +21,7 @@ export const Checkbox = ({
     >
       <div
         className={clsx(
-          `flex h-32 w-32 items-center justify-center gap-8 rounded-full transition-all ease-in hover:bg-neutral-100`,
+          `flex h-16 w-32 items-center justify-center gap-8 rounded-full transition-all ease-in hover:bg-neutral-100`,
         )}
       >
         <input
@@ -32,7 +32,7 @@ export const Checkbox = ({
       </div>
 
       {label && (
-        <label htmlFor={props.name} className="text-14 tracking-0.1">
+        <label htmlFor={props.name} className="text-[1.6rem] tracking-0.1">
           {label}
         </label>
       )}

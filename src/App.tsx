@@ -5,10 +5,11 @@ import {
   HeaderNavigation,
 } from './features/layout'
 import { Input } from './components/ui/input'
-import { List, Search } from 'lucide-react'
+import { Bell, ChevronDown, List, Search, Settings } from 'lucide-react'
 import { useState } from 'react'
 import { debounce } from 'lodash'
 import { DialogHelpers } from './components/ui/dialog'
+import { capitalizeFirstLetterFromLowercase } from './libs/helpers/formatText'
 
 export default function RootLayout() {
   const [search, setSearch] = useState<string>('')
@@ -22,6 +23,9 @@ export default function RootLayout() {
     const { value } = e.target
     handleSearch(value)
   }
+
+  const token = localStorage.getItem('token')
+  const username = localStorage.getItem('username')
 
   console.log(search)
 
@@ -45,7 +49,33 @@ export default function RootLayout() {
           </div>
         </div>
         <div className="hidden phones:block" onClick={() => setIsOpen(true)}>
-          <List size={24} color="#fff" />
+          <div className="flex flex-row items-center gap-x-32">
+            {token && (
+              <div className="flex items-center gap-x-32">
+                <span>
+                  <Settings size={16} />
+                </span>
+                <span>
+                  <Bell size={16} />
+                </span>
+                <div className="flex items-center gap-x-8">
+                  <img
+                    src="/img/logo.png"
+                    alt="Profile"
+                    width={18}
+                    className="rounded-full"
+                  />
+                  <span className="text-[2rem]">
+                    {capitalizeFirstLetterFromLowercase(username ?? '')}
+                  </span>
+                  <span>
+                    <ChevronDown size={16} />
+                  </span>
+                </div>
+              </div>
+            )}
+            <List size={24} color="#fff" />
+          </div>
         </div>
       </div>
       {/* ----- Content ----- */}
@@ -54,7 +84,7 @@ export default function RootLayout() {
       </div>
       <DialogHelpers
         title={
-          <h3 className="flex h-[7.6rem] items-center bg-primary-shade-500 px-24 text-[3.2rem] text-white">
+          <h3 className="flex h-[7.6rem] items-center bg-primary-shade-500 px-24 text-[3.2rem] text-secondary">
             Aca<span className="text-primary-shade-200">Demy</span>
           </h3>
         }

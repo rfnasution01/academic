@@ -44,7 +44,7 @@ export const InputPassword = React.forwardRef<HTMLInputElement, InputProps>(
           <p
             className={cn(
               'text-sm text-subdued hover:cursor-pointer',
-              error && 'text-destructive',
+              error && 'text-red-300',
             )}
           >
             {hide ? 'Tampilkan' : 'Sembunyikan'}

@@ -1,59 +1,48 @@
 import { cva } from 'class-variance-authority'
 
-const variants = {
-  solid: [
+const variant = {
+  default: [
+    'bg-white',
+    'border-transparent',
+    'text-black',
+    'hover:bg-slate-300',
+    'hover:border-button-outline-hover-border',
+    'hover:text-button-outline-hover-text',
+    'disabled:text-black',
+    'border',
+  ],
+  'solid-primary': [
+    'bg-primary',
+    'border-primary',
     'text-white',
     'hover:bg-primary-shade-700',
-    'active:bg-primary-shade-500',
-    'active:border-primary-shade-500',
-    'rounded-full',
-  ],
-  outlined: [
-    'text-black',
-    'bg-white',
-    'hover:bg-slate-300',
-    'active:bg-slate-300',
-    'rounded-full',
+    'hover:border-button-outline-hover-border',
+    'hover:text-button-outline-hover-text',
+    'disabled:text-black',
+    'border',
   ],
   'outlined-primary': [
+    'bg-transparent',
+    'border-white',
     'text-white',
-    'bg-primary',
-    'hover:bg-primary-shade-700',
-    'active:bg-primary-shade-500',
-    'rounded-full',
-  ],
-  'solid-general': [
-    'text-white',
-    'bg-general-tint-2',
+    'hover:bg-slate-300',
+    'hover:border-button-outline-hover-border',
+    'hover:text-black',
+    'disabled:text-black',
     'border',
-    'border-general',
-    'hover:bg-general-tint-3',
-    'hover:border-general-tint-3',
-    'active:bg-general-tint-3',
-    'active:border-general-tint-3',
-  ],
-  light: [
-    'text-white',
-    'bg-dark-background',
-    'border',
-    'border-dark-background',
-    'hover:bg-zinc-900',
-    'hover:border-dark-tint-2',
-    'active:bg-zinc-100',
-    'active:border-zinc-100',
   ],
 }
 
-export type ButtonVariants = keyof typeof variants
+export type ButtonVariants = keyof typeof variant
 
 export const buttonVariants = cva(
-  'flex items-center justify-center gap-8 p-16 leading-medium transition-all ease-in disabled:cursor-not-allowed disabled:bg-dark-background  disabled:text-typography-disabled disabled:border-zinc-700 disabled:shadow-disabled',
+  'flex items-center justify-center gap-8 p-8 leading-medium transition-all ease-in disabled:cursor-not-allowed disabled:bg-slate-300  disabled:text-typography-disabled disabled:border-slate-300 disabled:shadow-disabled',
   {
     variants: {
-      variant: variants,
+      variant: variant,
     },
     defaultVariants: {
-      variant: 'solid',
+      variant: 'default',
     },
   },
 )
