@@ -93,6 +93,7 @@ export function FormLogin({
       setTimeout(() => {
         setIsOpen(false)
       }, 3000)
+      location.reload()
     } else {
       toast.error(`Username atau password salah`, {
         position: 'top-center',
