@@ -4,6 +4,8 @@ export function useSearch() {
   const [searchParams, setSearchParams] = useSearchParams({ page: '1' })
 
   const currentPage = parseInt(searchParams.get('page') as string) || 1
+  const pageString = searchParams.get('page')
+
   const id = searchParams.get('id') || undefined
 
   const clickHandler = (pageNumber: number) => {
@@ -17,13 +19,21 @@ export function useSearch() {
     })
   }
 
-  
+  const pageHandler = (pageString: string) => {
+    setSearchParams(() => {
+      return {
+        page: pageString,
+      }
+    })
+  }
 
   return {
     searchParams,
     setSearchParams,
     currentPage,
+    pageString,
     onPageChange: clickHandler,
+    onPageClick: pageHandler,
     id,
   }
 }
