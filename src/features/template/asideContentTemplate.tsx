@@ -67,7 +67,12 @@ export function AsideContentTemplate({
               onClick={() => onPageClick(convertToSlug(item?.title))}
             >
               <span>{item?.icon}</span>
-              <span className={clsx('', { block: isShow, hidden: !isShow })}>
+              <span
+                className={clsx('', {
+                  'phones:block': isShow,
+                  'phones:hidden': !isShow,
+                })}
+              >
                 {item?.title}
               </span>
             </div>
