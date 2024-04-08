@@ -1,3 +1,6 @@
-export default function Academicpage(){
-    return <div className="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates delectus alias quod esse aliquam deserunt earum quibusdam nemo possimus consequuntur eveniet laboriosam, suscipit dolore eum tempore nostrum numquam explicabo autem.</div>
+import { AsideContentTemplate } from '@/features/template/asideContentTemplate'
+import { DataListAkademik } from '@/libs/consts/dummy/dataListAkademik'
+
+export default function Academicpage() {
+  return <AsideContentTemplate dataMapping={DataListAkademik} />
 }
