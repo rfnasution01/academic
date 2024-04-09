@@ -1,7 +1,8 @@
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 
 export function useSearch() {
   const [searchParams, setSearchParams] = useSearchParams({ page: '1' })
+  const navigate = useNavigate()
 
   const currentPage = parseInt(searchParams.get('page') as string) || 1
   const pageString = searchParams.get('page')
@@ -27,13 +28,18 @@ export function useSearch() {
     })
   }
 
+  const clickToNavigate = (pageString: string) => {
+    navigate(pageString)
+  }
+
   return {
     searchParams,
     setSearchParams,
     currentPage,
     pageString,
     onPageChange: clickHandler,
-    onPageClick: pageHandler,
+    onPageClick: clickToNavigate,
+    onPageHandler: pageHandler,
     id,
   }
 }

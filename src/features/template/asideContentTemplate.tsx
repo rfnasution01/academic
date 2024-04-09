@@ -3,24 +3,23 @@ import { usePathname } from '@/libs/hooks/usePathname'
 import { useSearch } from '@/libs/hooks/useSearch'
 import clsx from 'clsx'
 import { List } from 'lucide-react'
-import { ReactNode, useState } from 'react'
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
 export function AsideContentTemplate({
-  content,
   dataMapping,
 }: {
-  content?: ReactNode
   dataMapping: { title: string; icon: JSX.Element }[]
 }) {
-  const { pageString, onPageClick } = useSearch()
-  const { firstPathname } = usePathname()
+  const { onPageClick } = useSearch()
+  const { firstPathname, secondPathname } = usePathname()
   const [isShow, setIsShow] = useState<boolean>(false)
 
   const isActivePage = (item: string) => {
     if (
-      (pageString === '1' && item === 'tentang-kampus') ||
-      (pageString === '1' && item === 'program-studi') ||
-      pageString === item
+      (secondPathname === undefined && item === 'tentang-kampus') ||
+      (secondPathname === undefined && item === 'program-studi') ||
+      secondPathname === item
     ) {
       return true
     }
@@ -30,7 +29,7 @@ export function AsideContentTemplate({
   return (
     <div className="grid h-full grid-cols-12 gap-x-32 p-32">
       <div
-        className={clsx('col-span-2 ', {
+        className={clsx('col-span-2', {
           'phones:col-span-4': isShow,
           'phones:col-span-2': !isShow,
         })}
@@ -80,12 +79,12 @@ export function AsideContentTemplate({
         </div>
       </div>
       <div
-        className={clsx('col-span-10 bg-blue-300', {
+        className={clsx('scrollbar col-span-10 overflow-y-auto', {
           'phones:col-span-8': isShow,
           'phones:col-span-10': !isShow,
         })}
       >
-        {content}
+        <Outlet />
       </div>
     </div>
   )
