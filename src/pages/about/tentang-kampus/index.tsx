@@ -9,7 +9,7 @@ const TentangKampus = () => {
         alt="Naruto"
         className="h-[30vh] w-full rounded-xl"
       />
-      <div className="flex flex-col gap-y-32 rounded-lg  p-32">
+      <div className="flex flex-col gap-y-32 rounded-lg bg-white p-32">
         <SubMenuContentTemplate />
         <Outlet />
       </div>
