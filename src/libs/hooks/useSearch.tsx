@@ -20,6 +20,14 @@ export function useSearch() {
     })
   }
 
+  const pageHandler = (pageString: string) => {
+    setSearchParams(() => {
+      return {
+        page: pageString,
+      }
+    })
+  }
+
   const clickToNavigate = (pageString: string) => {
     navigate(pageString)
   }
@@ -31,6 +39,7 @@ export function useSearch() {
     pageString,
     onPageChange: clickHandler,
     onPageClick: clickToNavigate,
+    onPageHandler: pageHandler,
     id,
   }
 }

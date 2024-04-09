@@ -6,9 +6,13 @@ import {
   Academicpage,
   ComingSoon,
   Homepage,
+  Hymne,
+  Logo,
   NotFound,
+  Sejarah,
   Staff,
   TentangKampus,
+  VisiMisi,
 } from './loadables'
 
 export const router = createBrowserRouter([
@@ -27,10 +31,30 @@ export const router = createBrowserRouter([
           {
             path: '',
             element: <TentangKampus />,
+            children: [{ path: '', element: <Sejarah /> }],
           },
           {
             path: 'tentang-kampus',
             element: <TentangKampus />,
+            children: [
+              { path: '', element: <Sejarah /> },
+              {
+                path: 'sejarah',
+                element: <Sejarah />,
+              },
+              {
+                path: 'visi-misi',
+                element: <VisiMisi />,
+              },
+              {
+                path: 'filosofi-logo',
+                element: <Logo />,
+              },
+              {
+                path: 'hymne-dan-mars',
+                element: <Hymne />,
+              },
+            ],
           },
           {
             path: 'staff',

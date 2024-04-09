@@ -29,7 +29,7 @@ export function AsideContentTemplate({
   return (
     <div className="grid h-full grid-cols-12 gap-x-32 p-32">
       <div
-        className={clsx('col-span-2 ', {
+        className={clsx('col-span-2', {
           'phones:col-span-4': isShow,
           'phones:col-span-2': !isShow,
         })}
@@ -79,7 +79,7 @@ export function AsideContentTemplate({
         </div>
       </div>
       <div
-        className={clsx('col-span-10 bg-blue-300', {
+        className={clsx('scrollbar col-span-10 overflow-y-auto', {
           'phones:col-span-8': isShow,
           'phones:col-span-10': !isShow,
         })}
