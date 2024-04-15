@@ -14,7 +14,7 @@ type CardOrganizationListProps = {
 
 export function CardOrganization({ list, idx = 0 }: CardOrganizationProps) {
   return (
-    <div className="flex w-[18rem] flex-col items-center justify-center gap-y-12 rounded-2xl border bg-white">
+    <div className="flex w-[18rem] flex-col items-center justify-center gap-y-12 rounded-2xl border bg-white shadow-lg hover:cursor-pointer hover:shadow-2xl">
       <div className="p-12">
         <img
           src={list?.img}
