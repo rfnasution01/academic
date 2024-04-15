@@ -5,12 +5,21 @@ import {
   Aboutpage,
   Academicpage,
   ComingSoon,
+  DojoLatihan,
+  Fasilitas,
+  GedungSerbaguna,
   Homepage,
   Hymne,
+  KantinNinja,
+  KolamRenag,
+  LaboratoriumJutsu,
   Logo,
   NotFound,
+  PerpustakaanShinobi,
+  RuanganMedis,
   Sejarah,
   Staff,
+  TamanNinja,
   TentangKampus,
   VisiMisi,
 } from './loadables'
@@ -62,7 +71,42 @@ export const router = createBrowserRouter([
           },
           {
             path: 'fasilitas',
-            element: <ComingSoon />,
+            element: <Fasilitas />,
+            children: [
+              { path: '', element: <DojoLatihan /> },
+              {
+                path: 'dojo-pelatihan',
+                element: <DojoLatihan />,
+              },
+              {
+                path: 'perpustakaan-shinobi',
+                element: <PerpustakaanShinobi />,
+              },
+              {
+                path: 'laboratorium-jutsu',
+                element: <LaboratoriumJutsu />,
+              },
+              {
+                path: 'gedung-serbaguna',
+                element: <GedungSerbaguna />,
+              },
+              {
+                path: 'taman-latihan',
+                element: <TamanNinja />,
+              },
+              {
+                path: 'kantin-ninja',
+                element: <KantinNinja />,
+              },
+              {
+                path: 'ruangan-medis',
+                element: <RuanganMedis />,
+              },
+              {
+                path: 'kolam-renang',
+                element: <KolamRenag />,
+              },
+            ],
           },
           {
             path: 'akreditasi',
