@@ -6,7 +6,7 @@ import clsx from 'clsx'
 
 export function SubMenuContentTemplate() {
   const { onPageClick } = useSearch()
-  const { thirdPathname } = usePathname()
+  const { thirdPathname, secondPathname } = usePathname()
 
   const isActivePage = (item: string) => {
     if (
@@ -31,7 +31,13 @@ export function SubMenuContentTemplate() {
             },
           )}
           key={idx}
-          onClick={() => onPageClick(convertToSlug(item?.title))}
+          onClick={() =>
+            onPageClick(
+              secondPathname === undefined
+                ? `tentang-kampus/${convertToSlug(item?.title)}`
+                : convertToSlug(item?.title),
+            )
+          }
         >
           <span>{item?.icon}</span>
           <span className="text-nowrap">{item?.title}</span>
