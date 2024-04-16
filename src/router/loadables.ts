@@ -18,4 +18,31 @@ export const Hymne = loadable(
   () => import('@/pages/about/tentang-kampus/hymne'),
 )
 export const Staff = loadable(() => import('@/pages/about/staff'))
+
+export const Fasilitas = loadable(() => import('@/pages/about/fasilitas/index'))
+export const DojoLatihan = loadable(
+  () => import('@/pages/about/fasilitas/dojo'),
+)
+export const GedungSerbaguna = loadable(
+  () => import('@/pages/about/fasilitas/gedung'),
+)
+export const KantinNinja = loadable(
+  () => import('@/pages/about/fasilitas/kantin'),
+)
+export const KolamRenag = loadable(
+  () => import('@/pages/about/fasilitas/kolam'),
+)
+export const LaboratoriumJutsu = loadable(
+  () => import('@/pages/about/fasilitas/laboratorium'),
+)
+export const RuanganMedis = loadable(
+  () => import('@/pages/about/fasilitas/medis'),
+)
+export const PerpustakaanShinobi = loadable(
+  () => import('@/pages/about/fasilitas/perpustakaan'),
+)
+export const TamanNinja = loadable(
+  () => import('@/pages/about/fasilitas/taman'),
+)
+
 export const Academicpage = loadable(() => import('@/pages/academic'))
